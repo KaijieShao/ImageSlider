@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+> **Layout Inspiration:**  
+> [Gallery View on Dribbble](https://dribbble.com/shots/6438907-Gallery-View)
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🏗️ Task
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build a **responsive image gallery** with slider functionality using **Next.js**. The gallery should:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Fetch images from an API
+- Display them in a responsive grid layout
+- Provide a modal slider for full-size image viewing
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🎯 Objectives
 
-To learn more about Next.js, take a look at the following resources:
+- Implement a responsive image gallery component
+- Integrate with a public API to fetch image data
+- Create a modal slider for image viewing with navigation controls
+- Demonstrate various JavaScript looping techniques
+- Handle loading states and errors gracefully
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔗 API Integration
 
-## Deploy on Vercel
+Use one of the following public APIs:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [JSONPlaceholder Photo](https://jsonplaceholder.typicode.com/photos)
