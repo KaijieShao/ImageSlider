@@ -61,16 +61,16 @@ export default function ImageSlider({ photos, initialSlide, onClose }: ImageSlid
       {/* Close Button */}
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 z-50 w-12 h-12 flex items-center justify-center bg-black/60 hover:bg-black/80 rounded-full transition-colors"
+        className="absolute top-2 right-2 sm:top-4 sm:right-4 z-50 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-black/70 active:bg-black/90 sm:hover:bg-black/80 rounded-full transition-colors touch-manipulation"
         aria-label="Close slider"
       >
-        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
 
       {/* Swiper Slider */}
-      <div className="w-full h-full max-w-6xl mx-auto px-4 py-16 sm:py-20">
+      <div className="w-full h-full max-w-6xl mx-auto px-2 sm:px-4 py-12 sm:py-16 lg:py-20">
         <Swiper
           modules={[Navigation, Pagination, Keyboard]}
           initialSlide={initialSlide}
@@ -95,7 +95,7 @@ export default function ImageSlider({ photos, initialSlide, onClose }: ImageSlid
             <SwiperSlide key={photo.id}>
               <div className="w-full h-full flex flex-col items-center justify-center relative">
                 {/* Image Container */}
-                <div className="relative w-full h-[70vh] sm:h-[80vh]">
+                <div className="relative w-full h-[65vh] sm:h-[70vh] lg:h-[80vh]">
                   <Image
                     src={photo.url}
                     alt={photo.title}
@@ -103,8 +103,15 @@ export default function ImageSlider({ photos, initialSlide, onClose }: ImageSlid
                     quality={90}
                     className="object-contain"
                     priority={photo.id === photos[initialSlide].id}
-                    sizes="(max-width: 1024px) 100vw, 1200px"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
                   />
+                  
+                  {/* Image Title Overlay - Clean and minimal */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pt-6 sm:pt-8 pb-3 sm:pb-4 px-4 sm:px-6">
+                    <h3 className="text-white text-xs sm:text-sm lg:text-base font-medium text-center max-w-3xl mx-auto line-clamp-2">
+                      {photo.title}
+                    </h3>
+                  </div>
                 </div>
               </div>
             </SwiperSlide>
@@ -112,19 +119,19 @@ export default function ImageSlider({ photos, initialSlide, onClose }: ImageSlid
 
           {/* Custom Navigation Buttons */}
           <button
-            className="swiper-button-prev-custom absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-black/60 hover:bg-black/80 rounded-full transition-colors group"
+            className="swiper-button-prev-custom absolute left-1 sm:left-2 lg:left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex items-center justify-center bg-black/70 active:bg-black/90 sm:hover:bg-black/80 rounded-full transition-colors touch-manipulation"
             aria-label="Previous image"
           >
-            <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
 
           <button
-            className="swiper-button-next-custom absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-black/60 hover:bg-black/80 rounded-full transition-colors group"
+            className="swiper-button-next-custom absolute right-1 sm:right-2 lg:right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex items-center justify-center bg-black/70 active:bg-black/90 sm:hover:bg-black/80 rounded-full transition-colors touch-manipulation"
             aria-label="Next image"
           >
-            <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>

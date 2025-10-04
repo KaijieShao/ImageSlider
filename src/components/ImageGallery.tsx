@@ -57,25 +57,24 @@ export default function ImageGallery() {
   // Loading skeleton
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#2d1b4e] via-[#1a0f3a] to-[#0f0820] p-4 sm:p-8 lg:p-12">
+      <div className="min-h-screen bg-gradient-to-br from-[#2d1b4e] via-[#1a0f3a] to-[#0f0820] p-3 sm:p-6 lg:p-12">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-8">
-            <div className="h-10 w-64 bg-[#5b7cff]/20 rounded-lg mb-4 animate-pulse" />
-            <div className="h-4 w-48 bg-slate-700/50 rounded animate-pulse" />
+          <div className="mb-6 sm:mb-10">
+            <div className="h-8 sm:h-10 w-48 sm:w-64 bg-[#5b7cff]/20 rounded-lg mb-3 sm:mb-4 animate-pulse" />
+            <div className="h-3 sm:h-4 w-36 sm:w-48 bg-slate-700/50 rounded animate-pulse" />
           </div>
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 sm:gap-6 space-y-4 sm:space-y-6">
             {Array.from({ length: 12 }).map((_, index) => {
-              const heightClass = index % 5 === 0 ? 'h-[500px]' : 
-                                 index % 3 === 0 ? 'h-[400px]' : 
-                                 'h-[350px]';
+              const heightClass = index % 5 === 0 ? 'h-[300px] sm:h-[450px] lg:h-[500px]' : 
+                                 index % 3 === 0 ? 'h-[250px] sm:h-[380px] lg:h-[400px]' : 
+                                 'h-[220px] sm:h-[320px] lg:h-[350px]';
               return (
-                <div key={index} className="break-inside-avoid mb-6">
-                  <div className="bg-[#1a2845] rounded-2xl overflow-hidden">
+                <div key={index} className="break-inside-avoid mb-4 sm:mb-6">
+                  <div className="bg-[#1a2845] rounded-xl sm:rounded-2xl overflow-hidden">
                     <div className={`${heightClass} bg-slate-700/30 animate-pulse`} />
-                    <div className="p-6 bg-gradient-to-br from-[#1e3a8a]/50 to-[#1e40af]/50">
-                      <div className="h-3 w-20 bg-slate-600/50 rounded mb-3 animate-pulse" />
-                      <div className="h-5 w-3/4 bg-slate-600/50 rounded mb-2 animate-pulse" />
-                      <div className="h-4 w-full bg-slate-600/30 rounded animate-pulse" />
+                    <div className="p-4 sm:p-5 lg:p-6 bg-gradient-to-br from-[#1e3a8a]/50 to-[#1e40af]/50">
+                      <div className="h-2 sm:h-3 w-16 sm:w-20 bg-slate-600/50 rounded mb-2 sm:mb-3 animate-pulse" />
+                      <div className="h-4 sm:h-5 w-3/4 bg-slate-600/50 rounded animate-pulse" />
                     </div>
                   </div>
                 </div>
@@ -113,33 +112,33 @@ export default function ImageGallery() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#2d1b4e] via-[#1a0f3a] to-[#0f0820] p-4 sm:p-8 lg:p-12">
+    <div className="min-h-screen bg-gradient-to-br from-[#2d1b4e] via-[#1a0f3a] to-[#0f0820] p-3 sm:p-6 lg:p-12">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <header className="mb-8 sm:mb-12">
-          <h1 className="text-3xl sm:text-4xl font-bold text-[#5b7cff] mb-2 tracking-wider">
+        <header className="mb-6 sm:mb-10 lg:mb-12">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#5b7cff] mb-2 tracking-wider">
             IMAGE GALLERY
           </h1>
-          <p className="text-slate-400 text-sm">
-            {photos.length} images • Click to view full-screen
+          <p className="text-slate-400 text-xs sm:text-sm">
+            {photos.length} images • Tap to view full-screen
           </p>
         </header>
 
         {/* Masonry Gallery Grid - Demonstrates map() method */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 sm:gap-6 space-y-4 sm:space-y-6">
           {photos.map((photo, index) => {
-            // Vary card heights for masonry effect
-            const heightClass = index % 5 === 0 ? 'h-[500px]' : 
-                               index % 3 === 0 ? 'h-[400px]' : 
-                               'h-[350px]';
+            // Vary card heights for masonry effect - smaller on mobile
+            const heightClass = index % 5 === 0 ? 'h-[300px] sm:h-[450px] lg:h-[500px]' : 
+                               index % 3 === 0 ? 'h-[250px] sm:h-[380px] lg:h-[400px]' : 
+                               'h-[220px] sm:h-[320px] lg:h-[350px]';
             
             return (
               <div
                 key={photo.id}
                 onClick={() => openSlider(photo.id)}
-                className="group relative break-inside-avoid mb-6 cursor-pointer"
+                className="group relative break-inside-avoid mb-4 sm:mb-6 cursor-pointer active:scale-[0.98] transition-transform touch-manipulation"
               >
-                <div className="bg-[#1a2845] rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 hover:shadow-[0_20px_60px_rgba(91,124,255,0.3)] hover:-translate-y-1">
+                <div className="bg-[#1a2845] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 hover:shadow-[0_20px_60px_rgba(91,124,255,0.3)] hover:-translate-y-1">
                   {/* Image Section */}
                   <div className={`relative ${heightClass} overflow-hidden`}>
                     <Image
@@ -148,12 +147,12 @@ export default function ImageGallery() {
                       fill
                       quality={90}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110 group-active:scale-105"
                       loading="lazy"
                     />
-                    {/* Play button overlay for first few items */}
+                    {/* Play button overlay for first few items - hidden on mobile */}
                     {index < 3 && (
-                      <div className="absolute top-4 left-4 w-12 h-12 bg-[#5b7cff]/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="hidden sm:flex absolute top-4 left-4 w-12 h-12 bg-[#5b7cff]/20 backdrop-blur-sm rounded-full items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                         <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M8 5v14l11-7z"/>
                         </svg>
@@ -162,16 +161,13 @@ export default function ImageGallery() {
                   </div>
                   
                   {/* Content Section */}
-                  <div className="bg-gradient-to-br from-[#1e3a8a] to-[#1e40af] p-6">
-                    <div className="text-xs text-[#93c5fd] uppercase tracking-wider mb-2 font-semibold">
+                  <div className="bg-gradient-to-br from-[#1e3a8a] to-[#1e40af] p-4 sm:p-5 lg:p-6">
+                    <div className="text-[10px] sm:text-xs text-[#93c5fd] uppercase tracking-wider mb-1 sm:mb-2 font-semibold">
                       Photo #{photo.id}
                     </div>
-                    <h3 className="text-[#5b7cff] font-bold text-lg mb-2 leading-tight">
+                    <h3 className="text-[#5b7cff] font-bold text-base sm:text-lg leading-tight line-clamp-2">
                       {photo.title.split(' ').slice(0, 4).join(' ')}
                     </h3>
-                    <p className="text-slate-400 text-sm leading-relaxed">
-                      Click to view this image in full-screen slider with navigation controls.
-                    </p>
                   </div>
                 </div>
               </div>
