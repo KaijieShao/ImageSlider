@@ -90,7 +90,6 @@ export default function ImageSlider({ photos, initialSlide, onClose }: ImageSlid
             console.log('Slide changed to:', swiper.activeIndex + 1);
           }}
         >
-          {/* Generate slides using map() */}
           {photos.map((photo) => (
             <SwiperSlide key={photo.id}>
               <div className="w-full h-full flex flex-col items-center justify-center relative">
@@ -106,7 +105,6 @@ export default function ImageSlider({ photos, initialSlide, onClose }: ImageSlid
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
                   />
                   
-                  {/* Image Title Overlay - Clean and minimal */}
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pt-6 sm:pt-8 pb-3 sm:pb-4 px-4 sm:px-6">
                     <h3 className="text-white text-xs sm:text-sm lg:text-base font-medium text-center max-w-3xl mx-auto line-clamp-2">
                       {photo.title}

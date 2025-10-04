@@ -16,10 +16,7 @@ export default function ImageGallery() {
     loadPhotos();
   }, []);
 
-  /**
-   * Loads photos from API with error handling
-   * Demonstrates async/await and error handling
-   */
+  // Loads photos from API 
   async function loadPhotos() {
     try {
       setIsLoading(true);
@@ -36,10 +33,7 @@ export default function ImageGallery() {
     }
   }
 
-  /**
-   * Opens modal slider at specific photo ID
-   * Uses photo ID to find correct index (fixes masonry CSS columns reordering bug)
-   */
+  // Opens modal slider at specific photo ID
   const openSlider = (photoId: number) => {
     const index = photos.findIndex(photo => photo.id === photoId);
     if (index !== -1) {
@@ -47,9 +41,6 @@ export default function ImageGallery() {
     }
   };
 
-  /**
-   * Closes the modal slider
-   */
   const closeSlider = () => {
     setSelectedImageIndex(null);
   };
@@ -120,7 +111,7 @@ export default function ImageGallery() {
             IMAGE GALLERY
           </h1>
           <p className="text-slate-400 text-xs sm:text-sm">
-            {photos.length} images • Tap to view full-screen
+            {photos.length} images • Tap to view full screen • Use &lt; or &gt; to slide • Esc or tap outside to exit
           </p>
         </header>
 
