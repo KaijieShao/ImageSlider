@@ -17,7 +17,7 @@ A responsive image gallery built with **Next.js** featuring a beautiful masonry 
 
 ---
 
-## ✨ Features
+## ✨ Feature
 
 - 📱 **Responsive masonry grid** for all devices
 - 🖼️ **Full-screen modal slider** powered by Swiper.js
