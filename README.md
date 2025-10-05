@@ -3,7 +3,7 @@
 
 A responsive image gallery built with **Next.js** featuring a beautiful masonry layout and full-screen slider.
 
-[**▶️ View Demo**](https://drive.google.com/file/d/1F7ujHqDkm0ECOvsvpEcHrKc-MIODo-kb/view?usp=sharing)
+[**▶️ View Demo**](https://drive.google.com/file/d/1GyVWsvrqWZGfG2yT_GQnYTa7OzeSyUQJ/view?usp=sharing)
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js"/>
@@ -23,7 +23,7 @@ A responsive image gallery built with **Next.js** featuring a beautiful masonry 
 - 🖼️ **Full-screen modal slider** powered by Swiper.js
 - ⌨️ **Keyboard navigation** (arrow keys, ESC)
 - 🎨 **Gradient UI** with smooth animations
-- 📡 **Fetches images** from JSONPlaceholder API
+- 📡 **Fetches images** from Picsum Photos API
 - ⚡ **Loading states** and error handling
 - 🔄 **Touch-friendly** mobile experience
 

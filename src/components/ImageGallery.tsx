@@ -22,7 +22,7 @@ export default function ImageGallery() {
       setIsLoading(true);
       setError(null);
       
-      const fetchedPhotos = await fetchPhotos(50);
+      const fetchedPhotos = await fetchPhotos();
       const validPhotos = validatePhotos(fetchedPhotos);
       
       setPhotos(validPhotos);
@@ -34,7 +34,7 @@ export default function ImageGallery() {
   }
 
   // Opens modal slider at specific photo ID
-  const openSlider = (photoId: number) => {
+  const openSlider = (photoId: string) => {
     const index = photos.findIndex(photo => photo.id === photoId);
     if (index !== -1) {
       setSelectedImageIndex(index);
@@ -134,7 +134,7 @@ export default function ImageGallery() {
                   <div className={`relative ${heightClass} overflow-hidden`}>
                     <Image
                       src={photo.thumbnailUrl}
-                      alt={photo.title}
+                      alt={`Photo by ${photo.author}`}
                       fill
                       quality={90}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -157,7 +157,7 @@ export default function ImageGallery() {
                       Photo #{photo.id}
                     </div>
                     <h3 className="text-[#5b7cff] font-bold text-base sm:text-lg leading-tight line-clamp-2">
-                      {photo.title.split(' ').slice(0, 4).join(' ')}
+                      {photo.author}
                     </h3>
                   </div>
                 </div>

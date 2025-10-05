@@ -1,20 +1,15 @@
-/**
- * Photo data structure from JSONPlaceholder API
- */
 export interface Photo {
-  albumId: number;
-  id: number;
-  title: string;
-  url: string;
-  thumbnailUrl: string;
+  id: string;
+  author: string;
+  width: number;
+  height: number;
+  url: string;             // full-screen slider
+  download_url: string;
+  thumbnailUrl: string;    // gallery grid
 }
 
-/**
- * API response state for error handling
- */
 export interface ApiError {
   message: string;
   status?: number;
 }
-
 

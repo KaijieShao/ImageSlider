@@ -7,7 +7,7 @@ import { Navigation, Pagination, Keyboard } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 import { Photo } from '@/types/photo';
 
-// Import Swiper styles
+// Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -19,23 +19,14 @@ interface ImageSliderProps {
 }
 
 export default function ImageSlider({ photos, initialSlide, onClose }: ImageSliderProps) {
-  /**
-   * Handles ESC key press to close modal
-   * Demonstrates useCallback for memoized function
-   */
   const handleKeyPress = useCallback((event: KeyboardEvent) => {
     if (event.key === 'Escape') {
       onClose();
     }
   }, [onClose]);
 
-  /**
-   * Sets up keyboard event listener
-   * Demonstrates useEffect for side effects
-   */
   useEffect(() => {
     document.addEventListener('keydown', handleKeyPress);
-    // Prevent body scroll when modal is open
     document.body.style.overflow = 'hidden';
     
     return () => {
@@ -44,9 +35,6 @@ export default function ImageSlider({ photos, initialSlide, onClose }: ImageSlid
     };
   }, [handleKeyPress]);
 
-  /**
-   * Handles backdrop click to close modal
-   */
   const handleBackdropClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) {
       onClose();
@@ -58,7 +46,6 @@ export default function ImageSlider({ photos, initialSlide, onClose }: ImageSlid
       className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
       onClick={handleBackdropClick}
     >
-      {/* Close Button */}
       <button
         onClick={onClose}
         className="absolute top-2 right-2 sm:top-4 sm:right-4 z-50 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-black/70 active:bg-black/90 sm:hover:bg-black/80 rounded-full transition-colors touch-manipulation"
@@ -139,5 +126,4 @@ export default function ImageSlider({ photos, initialSlide, onClose }: ImageSlid
     </div>
   );
 }
-
 
